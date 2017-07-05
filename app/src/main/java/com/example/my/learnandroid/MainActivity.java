@@ -5,18 +5,27 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+
+    private TextView textView;
 
 
     private LinearLayout root;
 
     private Button btnClickMe;
 
+
+    private Spinner spinner;
+
+    private String[] dataSource = new String[]{"adasd","123123"};
     private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,48 +35,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView = new RecyclerView(this);
 
 
-        setContentView(recyclerView);
+//        setContentView(recyclerView);
+        textView = new TextView(this);
+
+        //context
+        textView.setText(R.string.app_name);
+
+        setContentView(textView);
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        recyclerView.setAdapter(new RecyclerView.Adapter() {
-
-
-            class Holder extends RecyclerView.ViewHolder{
-                private TextView textView;
-
-
-                public Holder(TextView itemView) {
-                    super(itemView);
-
-                    textView = itemView;
-                }
-
-                public TextView getTextView() {
-                    return textView;
-                }
-            }
-            @Override
-            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-                return new Holder(new TextView(parent.getContext()));
-            }
-
-            @Override
-            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
-                Holder vh = (Holder) holder;
-                vh.getTextView().setText("item"+position);
-
-            }
-
-            @Override
-            public int getItemCount() {
-                return data.length;
-            }
-
-            private String[] data = new String[]{"Hello","world"};
-        });
+        recyclerView.setAdapter(new MyAdapter());
 
 //        root =new LinearLayout(this);
 //        root.setOrientation(LinearLayout.HORIZONTAL);
@@ -85,10 +64,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            root.addView(btnClickMe,layoutParams);
 //        }
 
+
+        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setAdapter((new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,new String[]{"asda","asda"})));
+
     }
 
     @Override
     public void onClick(View v) {
         root.removeView(v);
     }
+
 }
