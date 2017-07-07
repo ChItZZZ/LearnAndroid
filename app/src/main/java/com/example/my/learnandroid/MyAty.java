@@ -10,6 +10,8 @@ import android.support.annotation.Nullable;
  */
 
 public class MyAty extends Activity{
+
+    public static final String ACTION = "test";
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
