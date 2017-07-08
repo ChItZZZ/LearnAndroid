@@ -45,4 +45,11 @@
         tools:layout_editor_absoluteX="47dp"
         tools:layout_editor_absoluteY="130dp" />
 
+    <Button
+        android:id="@+id/btnSendMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="发送消息" />
+
 </LinearLayout>

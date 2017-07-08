@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
 
 
+        findViewById(R.id.btnSendMsg).setOnClickListener(this);
+
+
+
 
         findViewById(R.id.spinner).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,15 +96,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         Log.e(TAG, "onCreate: 错误信息");
-        Log.d(TAG, "onCreate: 调试信息");
-        Log.i(TAG, "onCreate: 普通信息");
         Log.w(TAG, "onCreate: 警告信息");
+        Log.i(TAG, "onCreate: 普通信息");
+        Log.d(TAG, "onCreate: 调试信息");
+
+
 
     }
 
     @Override
     public void onClick(View v) {
-        root.removeView(v);
+        switch (v.getId()){
+            case R.id.btnSendMsg:
+                Intent i = new Intent(this,MyReceiver.class);
+                i.putExtra("data","jike");
+                sendBroadcast(i);
+                break;
+            default:root.removeView(v);break;
+        }
+
     }
 
 }

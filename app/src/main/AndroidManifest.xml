@@ -46,7 +46,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyAty" android:label="MyAty">
+        <activity
+            android:name=".MyAty"
+            android:label="MyAty">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
@@ -55,9 +57,14 @@
         </activity>
         <activity android:name=".MyAty2">
             <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>
