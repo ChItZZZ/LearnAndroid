@@ -51,5 +51,17 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="发送消息" />
+    <Button
+        android:id="@+id/btnReg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="注册接收器" />
+    <Button
+        android:id="@+id/btnUnreg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="注销接收器" />
 
 </LinearLayout>

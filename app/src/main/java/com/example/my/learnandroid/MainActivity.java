@@ -1,6 +1,7 @@
 package com.example.my.learnandroid;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         findViewById(R.id.btnSendMsg).setOnClickListener(this);
+        findViewById(R.id.btnReg).setOnClickListener(this);
+        findViewById(R.id.btnUnreg).setOnClickListener(this);
 
 
 
@@ -108,13 +111,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnSendMsg:
-                Intent i = new Intent(this,MyReceiver.class);
+                Intent i = new Intent(MyReceiver.ACTION);
                 i.putExtra("data","jike");
-                sendBroadcast(i);
+//                sendBroadcast(i);
+//                权限中断消息
+                sendOrderedBroadcast(i,null);
+                break;
+            case R.id.btnReg:
+                if(receiver == null){
+                    receiver = new MyReceiver();
+                    registerReceiver(receiver,new IntentFilter(MyReceiver.ACTION));
+                }
+                break;
+            case R.id.btnUnreg:
+                if(receiver != null){
+                    unregisterReceiver(receiver);
+                    receiver = null;
+                }
                 break;
             default:root.removeView(v);break;
         }
 
     }
+    private MyReceiver receiver = null;
 
 }

@@ -1,70 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.my.learnandroid">
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.example.my.learnandroid">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+    <activity android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!-- <activity android:name=".RelativeLayoutAty"> -->
-        <!-- &lt;!&ndash;<intent-filter>&ndash;&gt; -->
-        <!-- &lt;!&ndash;<action android:name="android.intent.action.MAIN" />&ndash;&gt; -->
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <!-- <activity android:name=".RelativeLayoutAty"> -->
+    <!-- &lt;!&ndash;<intent-filter>&ndash;&gt; -->
+    <!-- &lt;!&ndash;<action android:name="android.intent.action.MAIN" />&ndash;&gt; -->
 
 
-        <!-- &lt;!&ndash;<category android:name="android.intent.category.LAUNCHER" />&ndash;&gt; -->
-        <!-- &lt;!&ndash;</intent-filter>&ndash;&gt; -->
-        <!-- </activity> -->
-        <!-- <activity android:name=".FrameLayoutAty"> -->
-        <!-- &lt;!&ndash;<intent-filter>&ndash;&gt; -->
-        <!-- &lt;!&ndash;<action android:name="android.intent.action.MAIN" />&ndash;&gt; -->
+    <!-- &lt;!&ndash;<category android:name="android.intent.category.LAUNCHER" />&ndash;&gt; -->
+    <!-- &lt;!&ndash;</intent-filter>&ndash;&gt; -->
+    <!-- </activity> -->
+    <!-- <activity android:name=".FrameLayoutAty"> -->
+    <!-- &lt;!&ndash;<intent-filter>&ndash;&gt; -->
+    <!-- &lt;!&ndash;<action android:name="android.intent.action.MAIN" />&ndash;&gt; -->
 
 
-        <!-- &lt;!&ndash;<category android:name="android.intent.category.LAUNCHER" />&ndash;&gt; -->
-        <!-- &lt;!&ndash;</intent-filter>&ndash;&gt; -->
-        <!-- </activity> -->
-        <activity android:name=".ChooseDate">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+    <!-- &lt;!&ndash;<category android:name="android.intent.category.LAUNCHER" />&ndash;&gt; -->
+    <!-- &lt;!&ndash;</intent-filter>&ndash;&gt; -->
+    <!-- </activity> -->
+    <activity android:name=".ChooseDate">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Main2">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".Main2">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".MyAty"
-            android:label="MyAty">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".MyAty" android:label="MyAty">
+        <intent-filter>
+            <category android:name="android.intent.category.DEFAULT" />
 
-                <action android:name="test" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MyAty2">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            <action android:name="test" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".MyAty2">
+        <intent-filter>
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
 
-        <receiver
-            android:name=".MyReceiver"
-            android:enabled="true"
-            android:exported="true"></receiver>
-    </application>
 
-</manifest>
+    <!--发送同一个action消息给两个receiver-->
+    <receiver android:name=".MyReceiver" android:enabled="true" android:exported="true">
+        <intent-filter android:priority="10">
+            <action android:name="com.example.my.learnandroid.intent.action.MyReceiver"/>
+        </intent-filter>
+    </receiver>
+    <receiver android:name=".MyReceiver1">
+        <intent-filter android:priority="9">
+            <action android:name="com.example.my.learnandroid.intent.action.MyReceiver"/>
+        </intent-filter>
+    </receiver>
+</application>
+
